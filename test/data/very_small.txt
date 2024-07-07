@@ -1,1 +1,4 @@
-This is an example file
+This is an example file.
+All the contents are represented both as hex data and ascii.
+All characters that would mess with the output format like the newline character are replaced with a period.
+Binary chars are shown as periods too.
