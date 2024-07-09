@@ -32,9 +32,14 @@ func printLine(arr []byte, bytesRead int, offset int, cols int, groupSize int) {
 	fmt.Printf("%08x: %s %s\n", offset, printedGroup, arr[:bytesRead])
 }
 
-func Read(file os.File, cols int, groupSize int) {
+func Read(file os.File, cols int, groupSize int, maxBytesToRead int) {
 	offset := 0
+	maxBytes := maxBytesToRead
 	for {
+		if maxBytes == 0 {
+			break
+		}
+
 		arr := make([]byte, cols)
 		bytesRead, err := file.Read(arr)
 		if err != nil && bytesRead != 0 {
@@ -45,7 +50,13 @@ func Read(file os.File, cols int, groupSize int) {
 			break
 		}
 
-		printLine(arr, bytesRead, offset, cols, groupSize)
-		offset += (cols)
+		bytesToPrint := bytesRead
+		if maxBytes > 0 && maxBytes < bytesRead {
+			bytesToPrint = maxBytes
+		}
+
+		printLine(arr, bytesToPrint, offset, cols, groupSize)
+		offset += cols
+		maxBytes -= bytesToPrint
 	}
 }

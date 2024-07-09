@@ -8,6 +8,7 @@ Developed using the TDD approach by comparing the output of the system `xxd` wit
 
  * `-c cols` Format `cols` octets per line. Default 16.
  * `-g bytes` Separate the output of every `bytes` bytes (two hex characters) by a whitespace. Default 2.
+ * `-l len` Stop after printing `len` octets. Defaults to -1 (Inf).  
 
 
 ## Example output

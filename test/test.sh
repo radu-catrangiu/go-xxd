@@ -48,22 +48,29 @@ compare_xxd() {
 compare_xxd "./test/data/very_small.txt"
 compare_xxd "./test/data/very_small.txt" -c 8
 compare_xxd "./test/data/very_small.txt" -c 12 -g 8
+compare_xxd "./test/data/very_small.txt" -l 20
+compare_xxd "./test/data/very_small.txt" -l 20 -c 10
 
 
 compare_xxd "./test/data/small.txt"
 compare_xxd "./test/data/small.txt" -c 8
 compare_xxd "./test/data/small.txt" -c 12 -g 8
+compare_xxd "./test/data/small.txt" -l 20
+compare_xxd "./test/data/small.txt" -l 20 -c 10
 
 
 compare_xxd "./test/data/medium.txt"
 compare_xxd "./test/data/medium.txt" -c 8
 compare_xxd "./test/data/medium.txt" -c 12 -g 8
+compare_xxd "./test/data/medium.txt" -l 20
+compare_xxd "./test/data/medium.txt" -l 20 -c 10
 
 
 compare_xxd "./test/data/large.bin"
 compare_xxd "./test/data/large.bin" -c 8
 compare_xxd "./test/data/large.bin" -c 12 -g 8
-
+compare_xxd "./test/data/large.bin" -l 20
+compare_xxd "./test/data/large.bin" -l 20 -c 10
 
 rmdir ./test/tmp 
 

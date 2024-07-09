@@ -16,7 +16,7 @@ func main() {
 		log.Fatalln("Could not open the file. Error:", err)
 	}
 
-	reader.Read(*file, params.Cols, params.GroupSize)
+	reader.Read(*file, params.Cols, params.GroupSize, params.MaxBytesToRead)
 
 	err = file.Close()
 	if err != nil {
